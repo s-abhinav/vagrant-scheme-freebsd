@@ -15,6 +15,7 @@ echo Install geiser
 mkdir ~/lisp
 cd ~/lisp
 git clone http://git.sv.gnu.org/r/geiser.git
+git clone http://mumble.net/~campbell/git/paredit.git
 
 echo configure .emacs to load geiser on start
 
