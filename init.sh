@@ -11,11 +11,12 @@ sudo pkg install -y zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sudo chsh -s /usr/local/bin/zsh vagrant
 
-echo Install geiser
+echo Install emacs utilities
 mkdir ~/lisp
 cd ~/lisp
 git clone http://git.sv.gnu.org/r/geiser.git
 git clone http://mumble.net/~campbell/git/paredit.git
+wget https://raw.githubusercontent.com/emacsmirror/emacswiki.org/master/lacarte.el
 
 echo configure .emacs to load geiser on start
 
@@ -32,4 +33,7 @@ cat <<EOF > ~/.emacs
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 
+(load-file "~/lisp/lacarte.el")
+(global-set-key [?\e ?\M-x] 'lacarte-execute-command)
+(global-set-key [?\M-`] 'lacarte-execute-command)
 EOF
