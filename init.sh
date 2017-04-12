@@ -11,6 +11,13 @@ sudo pkg install -y zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sudo chsh -s /usr/local/bin/zsh vagrant
 
+echo Fix repeated characters in zsh
+cat <<EOF >> ~/.zshrc
+
+# Fix repeated characters at the start of commands
+export LC_CTYPE=en_US.UTF-8
+EOF
+
 echo Install emacs utilities
 mkdir ~/lisp
 cd ~/lisp
