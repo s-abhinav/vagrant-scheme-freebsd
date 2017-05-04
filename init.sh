@@ -27,7 +27,7 @@ wget https://raw.githubusercontent.com/emacsmirror/emacswiki.org/master/lacarte.
 
 echo configure .emacs to load geiser on start
 
-cat <<EOF > ~/.emacs
+cat << "EOF" > ~/.emacs
 (load-file "~/lisp/geiser/elisp/geiser.el")
 (setq geiser-active-implementations '(guile))
 
