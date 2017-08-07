@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo Install required apps
-sudo pkg install -y git screen wget curl emacs25 guile2
+sudo pkg install -y git screen wget curl emacs25 guile2 texinfo
 
 echo Install zsh oh-my-zsh
 sudo pkg install -y zsh
@@ -43,3 +43,10 @@ cat << "EOF" > ~/.emacs
 (global-set-key [?\e ?\M-x] 'lacarte-execute-command)
 (global-set-key [?\M-`] 'lacarte-execute-command)
 EOF
+
+echo install SICP Texinfo
+wget https://github.com/abhinav1587/vagrant-scheme-freebsd/raw/master/sicp.info.gz
+sudo cp sicp.info.gz /usr/local/info/
+sudo chmod 644 /usr/local/info/sicp.info.gz
+sudo install-info /usr/local/info/sicp.info.gz /usr/local/info/dir
+rm sicp.info.gz
