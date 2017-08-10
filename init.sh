@@ -25,6 +25,8 @@ wget https://raw.githubusercontent.com/emacsmirror/emacswiki.org/master/lacarte.
 echo configure .emacs to load geiser on start
 
 cat << "EOF" > ~/.emacs
+(menu-bar-mode -1)
+
 (load-theme 'wombat t)
 
 (load-file "~/.lisp/geiser/elisp/geiser.el")
