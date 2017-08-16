@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo Install required apps
-sudo pkg install -y git screen wget curl emacs25 guile2 texinfo
+sudo pkg install -y git screen wget curl emacs25 guile2 texinfo tree
 
 echo Install zsh oh-my-zsh
 sudo pkg install -y zsh
@@ -28,6 +28,9 @@ cat << "EOF" > ~/.emacs
 (menu-bar-mode -1)
 
 (load-theme 'wombat t)
+
+;; Scroll one line at a time past the top or bottom window
+(setq scroll-conservatively 10000)
 
 (load-file "~/.lisp/geiser/elisp/geiser.el")
 (setq geiser-active-implementations '(guile))
