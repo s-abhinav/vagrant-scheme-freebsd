@@ -43,6 +43,7 @@ cat << "EOF" > ~/.emacs
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook           #'company-mode)
 
 (load-file "~/.lisp/lacarte.el")
 (global-set-key [?\e ?\M-x] 'lacarte-execute-command)
