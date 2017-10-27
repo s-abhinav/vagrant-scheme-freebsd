@@ -48,6 +48,13 @@ cat << "EOF" > ~/.emacs
 (load-file "~/.lisp/lacarte.el")
 (global-set-key [?\e ?\M-x] 'lacarte-execute-command)
 (global-set-key [?\M-`] 'lacarte-execute-command)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((scheme . t)
+   (emacs-lisp . nil)
+   ))
+
 EOF
 
 echo install SICP Texinfo
