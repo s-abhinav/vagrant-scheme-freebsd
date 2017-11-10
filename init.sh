@@ -20,6 +20,7 @@ mkdir ~/.lisp
 cd ~/.lisp
 git clone http://git.sv.gnu.org/r/geiser.git
 git clone http://mumble.net/~campbell/git/paredit.git
+git clone https://github.com/sabof/org-bullets.git
 wget https://raw.githubusercontent.com/emacsmirror/emacswiki.org/master/lacarte.el
 
 echo configure .emacs to load geiser on start
@@ -48,6 +49,9 @@ cat << "EOF" > ~/.emacs
 (load-file "~/.lisp/lacarte.el")
 (global-set-key [?\e ?\M-x] 'lacarte-execute-command)
 (global-set-key [?\M-`] 'lacarte-execute-command)
+
+(load-file "~/.lisp/org-bullets/org-bullets.el")
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
