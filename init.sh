@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo Install required apps
-sudo pkg install -y git screen wget curl emacs25 guile2 texinfo tree
+sudo pkg install -y git screen wget curl emacs25 guile2 texinfo tree en-aspell
 
 echo Install zsh oh-my-zsh
 sudo pkg install -y zsh
@@ -52,6 +52,19 @@ cat << "EOF" > ~/.emacs
 
 (load-file "~/.lisp/org-bullets/org-bullets.el")
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(setq org-ellipsis "⤵")
+
+;; Use syntax highlighting in source blocks while editing
+(setq org-src-fontify-natively t)
+
+;; When editing a code snippet, use the current window rather
+;; than popping open a new one (which shows the same information).
+(setq org-src-window-setup 'current-window)
+
+;; Enable spell-checking in Org-mode.
+(add-hook 'org-mode-hook 'flyspell-mode)
+
 
 (org-babel-do-load-languages
  'org-babel-load-languages
