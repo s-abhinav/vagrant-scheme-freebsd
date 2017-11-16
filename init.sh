@@ -46,6 +46,9 @@ cat << "EOF" > ~/.emacs
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'company-mode)
 
+(add-hook 'org-mode-hook           #'org-indent-mode)
+(add-hook 'org-mode-hook           #'visual-line-mode)
+
 (load-file "~/.lisp/lacarte.el")
 (global-set-key [?\e ?\M-x] 'lacarte-execute-command)
 (global-set-key [?\M-`] 'lacarte-execute-command)
