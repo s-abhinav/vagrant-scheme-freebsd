@@ -53,6 +53,9 @@ cat << "EOF" > ~/.emacs
 (global-set-key [?\e ?\M-x] 'lacarte-execute-command)
 (global-set-key [?\M-`] 'lacarte-execute-command)
 
+;; Don’t ask before evaluating code blocks.
+(setq org-confirm-babel-evaluate nil)
+
 (load-file "~/.lisp/org-bullets/org-bullets.el")
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
